@@ -24,6 +24,7 @@ obj-$(CONFIG_CPU_FREQ_GOV_INTERACTIVEX)	+= cpufreq_interactivex.o
 obj-$(CONFIG_CPU_FREQ_GOV_LIONHEART)	+= cpufreq_lionheart.o
 obj-$(CONFIG_CPU_FREQ_GOV_DARKNESS)	+= cpufreq_darkness.o
 obj-$(CONFIG_CPU_FREQ_GOV_ALUCARD)	+= cpufreq_alucard.o
+
 obj-$(CONFIG_CPU_FREQ_GOV_UMBRELLA_CORE)	+= cpufreq_umbrella_core.o
 obj-$(CONFIG_CPU_FREQ_GOV_CULTIVATION)	+= cpufreq_cultivation.o
 obj-$(CONFIG_CPU_FREQ_GOV_ALESSA) 	+= cpufreq_alessa.o
@@ -31,7 +32,7 @@ obj-$(CONFIG_CPU_FREQ_GOV_DANCEDANCE) 	+= cpufreq_dancedance.o
 obj-$(CONFIG_CPU_FREQ_GOV_IMPULSE) 	+= cpufreq_impulse.o
 
 obj-$(CONFIG_CPU_BOOST)			+= cpu-boost.o
-
+obj-$(CONFIG_CPU_FREQ_GOV_CULTIVATION)	+= cpufreq_cultivation.o
 obj-$(CONFIG_CPUFREQ_DT)		+= cpufreq-dt.o
 
 ##################################################################################
