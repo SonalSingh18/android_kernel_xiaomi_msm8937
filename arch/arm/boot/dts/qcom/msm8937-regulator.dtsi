@@ -16,7 +16,7 @@
 		status = "okay";
 		pm8937_s1: regulator-s1 {
 			regulator-min-microvolt = <1000000>;
-			regulator-max-microvolt = <1225000>;
+			regulator-max-microvolt = <1275000>;
 			qcom,init-voltage = <1000000>;
 			status = "okay";
 		};
@@ -299,8 +299,11 @@
 			reg = <0x2000 0x100>;
 			qcom,mode = "pwm";
 			regulator-name = "pm8937_s5";
-			regulator-min-microvolt = <1050000>;
-			regulator-max-microvolt = <1350000>;
+			qcom,auto-mode-enable = <1>;
+			qcom,soft-start-enable = <1>;
+			qcom,vs-soft-start-strength = <2>;
+			regulator-min-microvolt = <1025000>;
+			regulator-max-microvolt = <1300000>;
 		};
 	};
 };
@@ -358,13 +361,12 @@
 		interrupts = <0 15 0>;
 		regulator-name = "apc_corner";
 		regulator-min-microvolt = <1>;
-		regulator-max-microvolt = <8>;
+
+		regulator-max-microvolt = <11>;
 
 		qcom,cpr-fuse-corners = <3>;
-
-		qcom,cpr-voltage-ceiling = <1130000 1225000 1350000>;
-		qcom,cpr-voltage-floor =   <1050000 1135000 1275000>; //overvolt higher clock rates.
-
+		qcom,cpr-voltage-ceiling = <1150000 1200000 1300000>;
+		qcom,cpr-voltage-floor =   <1025000 1065000 1175000>; //Undervolt down to -75mV
 		vdd-apc-supply = <&pm8937_s5>;
 
 		mem-acc-supply = <&mem_acc_vreg_corner>;
@@ -386,7 +388,9 @@
 		qcom,cpr-fuse-row = <67 0>;
 		qcom,cpr-fuse-target-quot = <42 24 6>;
 		qcom,cpr-fuse-ro-sel = <60 57 54>;
-		qcom,cpr-init-voltage-ref = <1130000 1225000 1350000>;
+
+		qcom,cpr-init-voltage-ref = <1150000 1200000 1300000>;
+
 		qcom,cpr-fuse-init-voltage =
 					<67 36 6 0>,
 					<67 18 6 0>,
@@ -397,16 +401,21 @@
 					<70 54 8 0>;
 		qcom,cpr-fuse-quot-offset-scale = <5 5 5>;
 		qcom,cpr-init-voltage-step = <10000>;
-		qcom,cpr-corner-map = <1 1 2 2 2 3 3 3 3>;
+
+		qcom,cpr-corner-map = <1 1 1 2 2 2 3 3 3 3 3>;
 		qcom,cpr-corner-frequency-map =
-				<1 960000000>,
-				<2 1094400000>,
-				<3 1209600000>,
-				<4 1248000000>,
-				<5 1344000000>,
-				<6 1401000000>,
-				<7 1497600000>,
-				<8 1536000000>;
+				<1 345600000>,
+				<2 422400000>,
+				<3 652800000>,
+				<4 844800000>,
+				<5 960000000>,
+				<6 1094400000>,
+				<7 1209600000>,
+				<8 1248000000>,
+				<9 1344000000>,
+				<10 1401000000>,
+				<11 1497600000>;
+
 		qcom,speed-bin-fuse-sel = <37 34 3 0>;
 		qcom,cpr-speed-bin-max-corners =
 					<0 0 1 2 6>,
