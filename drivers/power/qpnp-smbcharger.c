@@ -3975,7 +3975,7 @@ static void check_battery_type(struct smbchg_chip *chip)
 }
 
 
-#define call_current_max 2000
+#define call_current_max 2400
 
 void smbchg_set_calling_current(struct smbchg_chip *chip)
 {
@@ -3986,7 +3986,7 @@ void smbchg_set_calling_current(struct smbchg_chip *chip)
 	pr_smb(PR_MISC, "chip->call_state =%d, usb_supply_type =%d\n", chip->call_state, usb_supply_type);
 	if ((chip->call_state == 0)) {
 		if (usb_supply_type == POWER_SUPPLY_TYPE_USB_DCP)  {
-			pr_smb(PR_MISC, "call_icl_voltage vote 2000mA when calling\n");
+			pr_smb(PR_MISC, "call_icl_voltage vote 2400mA when calling\n");
 			vote(chip->usb_icl_votable, CALL_ICL_VOTER, true, call_current_max);
 		}
 	} else {
@@ -7857,7 +7857,7 @@ err:
 }
 
 #define DEFAULT_VLED_MAX_UV		3500000
-#define DEFAULT_FCC_MA			2000
+#define DEFAULT_FCC_MA			2400
 
 static int smb_parse_dt(struct smbchg_chip *chip)
 {
