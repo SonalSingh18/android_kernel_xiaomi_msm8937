@@ -42,6 +42,21 @@ insert_line fstab.qcom "data        f2fs" before "data        ext4" "/dev/block/
 insert_line fstab.qcom "cache        f2fs" after "data        ext4" "/dev/block/bootdevice/by-name/cache     /cache        f2fs    nosuid,nodev,noatime,inline_xattr,flush_merge,data_flush wait,formattable,check";
 fi;
 
+
+# init.qcom.rc
+if [ -f /init.qcom.rc ]; then
+backup_file init.qcom.rc;
+append_file init.qcom.rc "bbinstall" init.qcom.patch;
+insert_line init.qcom.rc "init.spectrum.rc" before "on early-init" "import init.spectrum.rc";
+insert_line init.qcom.rc "" before "on early-init" "";
+else
+backup_file init.rc;
+insert_line init.rc "init.gabriel.rc" before "on early-init" "import init.gabriel.rc";
+insert_line init.rc "init.spectrum.rc" after "import init.gabriel.rc" "import init.spectrum.rc";
+insert_line init.rc "" before "on early-init" "";
+fi;
+
+
 # end ramdisk changes
 
 write_boot;
