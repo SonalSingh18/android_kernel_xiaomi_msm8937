@@ -121,5 +121,7 @@ echo 1 > /sys/module/workqueue/parameters/power_efficient
 echo 0 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lm
 echo "westwood" > /proc/sys/net/ipv4/tcp_congestion_control
 
+echo -n disable > /sys/devices/soc/soc:qcom,bcl/mode
+
 echo "[Gabriel-Kernel] spectrum: battery profile loaded" > /dev/kmsg
 )&
