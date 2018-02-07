@@ -64,6 +64,48 @@ for i in 4 5 6 7; do
     fi;
 done;
 
+echo 2 > /proc/sys/kernel/sched_window_stats_policy
+echo 90 > /proc/sys/kernel/sched_upmigrate
+echo 65 > /proc/sys/kernel/sched_downmigrate
+echo 7 > /proc/sys/kernel/sched_spill_nr_run
+echo 97 > /proc/sys/kernel/sched_spill_load
+echo 30 > /proc/sys/kernel/sched_init_task_load
+echo 7 > /proc/sys/kernel/sched_upmigrate_min_nice
+echo 4 > /proc/sys/kernel/sched_ravg_hist_size
+echo 950000 > /proc/sys/kernel/sched_rt_runtime_us
+echo 1000000 > /proc/sys/kernel/sched_rt_period_us
+echo 5 > /proc/sys/kernel/sched_new_task_windows
+if [ -e "/proc/sys/kernel/sched_heavy_task" ]; then
+    echo 96 > /proc/sys/kernel/sched_heavy_task
+fi
+if [ -e "/proc/sys/kernel/sched_enable_power_aware" ]; then
+    echo 1 > /proc/sys/kernel/sched_enable_power_aware
+fi
+if [ -e "/proc/sys/kernel/sched_small_wakee_task_load" ]; then
+	echo 15 > /proc/sys/kernel/sched_small_wakee_task_load
+fi
+if [ -e "/proc/sys/kernel/sched_wakeup_load_threshold" ]; then
+	echo 110 > /proc/sys/kernel/sched_wakeup_load_threshold
+fi
+if [ -e "/proc/sys/kernel/sched_small_task" ]; then
+	echo 15 > /proc/sys/kernel/sched_small_task
+fi
+if [ -e "/proc/sys/kernel/sched_big_waker_task_load" ]; then
+	echo 33 > /proc/sys/kernel/sched_big_waker_task_load
+fi
+if [ -e "/proc/sys/kernel/sched_migration_fixup" ]; then
+	echo 1 > /proc/sys/kernel/sched_migration_fixup
+fi
+if [ -e "/proc/sys/kernel/sched_freq_dec_notify" ]; then
+	echo 410000 > /proc/sys/kernel/sched_freq_dec_notify
+fi
+if [ -e "/proc/sys/kernel/sched_freq_inc_notify" ]; then
+	echo 610000 > /proc/sys/kernel/sched_freq_inc_notify
+fi
+if [ -e "/proc/sys/kernel/sched_boost" ]; then
+	echo 0 > /proc/sys/kernel/sched_boost
+fi
+
 echo 1 > /sys/module/msm_thermal/core_control/enabled
 echo 0 > /sys/module/msm_thermal/parameters/enabled
 echo "powersave" > /sys/class/kgsl/kgsl-3d0/devfreq/governor
