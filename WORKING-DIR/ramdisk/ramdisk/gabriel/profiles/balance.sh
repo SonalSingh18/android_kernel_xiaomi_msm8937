@@ -23,6 +23,7 @@ for i in 0 1 2 3; do
 	    echo 1094400 > /$CPUB/$GOV/hispeed_freq
 	    echo "$TARGET0" > /$CPUB/$GOV/target_loads
 	    echo 40000 > /$CPUB/$GOV/timer_rate
+	    echo 40000 > /$CPUB/$GOV/sleep_timer_rate
 	    echo 0 > /$CPUB/$GOV/min_sample_time
 	    echo 1 > /$CPUB/$GOV/ignore_hispeed_on_notif
 	    echo 0 > /$CPUB/$GOV/max_freq_hysteresis
@@ -51,6 +52,7 @@ for i in 4 5 6 7; do
     	echo 998400 > /$CPUL/$GOV/hispeed_freq
     	echo "$TARGET4" > /$CPUL/$GOV/target_loads
     	echo 20000 > /$CPUL/$GOV/timer_rate
+    	echo 40000 > /$CPUL/$GOV/sleep_timer_rate
     	echo 0 > /$CPUL/$GOV/min_sample_time
     	echo 1 > /$CPUL/$GOV/ignore_hispeed_on_notif
     	echo 0 > /$CPUL/$GOV/max_freq_hysteresis
