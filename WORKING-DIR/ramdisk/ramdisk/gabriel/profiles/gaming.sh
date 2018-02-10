@@ -10,29 +10,29 @@ TARGET4="50 902400:69"
 
 for i in 0 1 2 3; do
 	CPUB=sys/devices/system/cpu/cpu$i/cpufreq
-    if [ "$(cat /sys/devices/system/cpu/cpu$i/online)" == "1" ];then
-    	chmod 644 /$CPUB/scaling_governor
-	    echo "interactive" > /$CPUB/scaling_governor
-	    chmod 444 /$CPUB/scaling_governor
-	    chmod 644 /$CPUB/$GOV/*
-	    echo 1 > /$CPUB/$GOV/use_sched_load
-	    echo 1 > /$CPUB/$GOV/use_migration_notif
-	    echo 1 > /$CPUB/$GOV/enable_prediction
-	    echo 0 > /$CPUB/$GOV/above_hispeed_delay
-	    echo 85 > /$CPUB/$GOV/go_hispeed_load
-	    echo 1344000 > /$CPUB/$GOV/hispeed_freq
-	    echo "$TARGET0" > /$CPUB/$GOV/target_loads
-	    echo 20000 > /$CPUB/$GOV/timer_rate
-	    echo 40000 > /$CPUB/$GOV/sleep_timer_rate
-	    echo 60000 > /$CPUB/$GOV/min_sample_time
-	    echo 1 > /$CPUB/$GOV/ignore_hispeed_on_notif
-	    echo 79000 > /$CPUB/$GOV/max_freq_hysteresis
-	    echo 80000 > /$CPUB/$GOV/timer_slack
-	    echo 0 > /$CPUB/$GOV/io_is_busy
-    	echo 0 > /$CPUB/$GOV/boost
-    	echo 0 > /$CPUB/$GOV/boostpulse_duration
-	    echo 0 > /$CPUB/$GOV/fast_ramp_down
-    	echo 1401000 > /$CPUB/scaling_max_freq
+	if [ "$(cat /sys/devices/system/cpu/cpu$i/online)" == "1" ];then
+		chmod 644 /$CPUB/scaling_governor
+		echo "interactive" > /$CPUB/scaling_governor
+		chmod 444 /$CPUB/scaling_governor
+		chmod 644 /$CPUB/$GOV/*
+		echo 1 > /$CPUB/$GOV/use_sched_load
+		echo 1 > /$CPUB/$GOV/use_migration_notif
+		echo 1 > /$CPUB/$GOV/enable_prediction
+		echo 0 > /$CPUB/$GOV/above_hispeed_delay
+		echo 85 > /$CPUB/$GOV/go_hispeed_load
+		echo 1344000 > /$CPUB/$GOV/hispeed_freq
+		echo "$TARGET0" > /$CPUB/$GOV/target_loads
+		echo 20000 > /$CPUB/$GOV/timer_rate
+		echo 40000 > /$CPUB/$GOV/sleep_timer_rate
+		echo 60000 > /$CPUB/$GOV/min_sample_time
+		echo 1 > /$CPUB/$GOV/ignore_hispeed_on_notif
+		echo 79000 > /$CPUB/$GOV/max_freq_hysteresis
+		echo 80000 > /$CPUB/$GOV/timer_slack
+		echo 0 > /$CPUB/$GOV/io_is_busy
+		echo 0 > /$CPUB/$GOV/boost
+		echo 0 > /$CPUB/$GOV/boostpulse_duration
+		echo 0 > /$CPUB/$GOV/fast_ramp_down
+		echo 1401000 > /$CPUB/scaling_max_freq
         break
     fi;
 done;
@@ -40,28 +40,28 @@ done;
 for i in 4 5 6 7; do
 	CPUL=sys/devices/system/cpu/cpu$i/cpufreq
     if [ "$(cat /sys/devices/system/cpu/cpu$i/online)" == "1" ];then
-    	chmod 644 /$CPUL/scaling_governor
-    	echo "interactive" > /$CPUL/scaling_governor
-    	chmod 444 /$CPUL/scaling_governor
-    	chmod 644 /$CPUL/$GOV/*
-    	echo 1 > /$CPUL/$GOV/use_sched_load
-    	echo 1 > /$CPUL/$GOV/use_migration_notif
-    	echo 0 > /$CPUL/$GOV/enable_prediction
-    	echo 0 > /$CPUL/$GOV/above_hispeed_delay
-    	echo 75 > /$CPUL/$GOV/go_hispeed_load
-    	echo 998400 > /$CPUL/$GOV/hispeed_freq
-    	echo "$TARGET4" > /$CPUL/$GOV/target_loads
-    	echo 20000 > /$CPUL/$GOV/timer_rate
-    	echo 40000 > /$CPUL/$GOV/sleep_timer_rate
-    	echo 40000 > /$CPUL/$GOV/min_sample_time
-    	echo 1 > /$CPUL/$GOV/ignore_hispeed_on_notif
-    	echo 79000 > /$CPUL/$GOV/max_freq_hysteresis
-    	echo 80000 > /$CPUL/$GOV/timer_slack
-    	echo 0 > /$CPUL/$GOV/io_is_busy
-    	echo 0 > /$CPUL/$GOV/boost
-    	echo 0 > /$CPUL/$GOV/boostpulse_duration
-    	echo 0 > /$CPUL/$GOV/fast_ramp_down
-    	echo 1094400 > /$CPUL/scaling_max_freq
+		chmod 644 /$CPUL/scaling_governor
+		echo "interactive" > /$CPUL/scaling_governor
+		chmod 444 /$CPUL/scaling_governor
+		chmod 644 /$CPUL/$GOV/*
+		echo 1 > /$CPUL/$GOV/use_sched_load
+		echo 1 > /$CPUL/$GOV/use_migration_notif
+		echo 0 > /$CPUL/$GOV/enable_prediction
+		echo 0 > /$CPUL/$GOV/above_hispeed_delay
+		echo 75 > /$CPUL/$GOV/go_hispeed_load
+		echo 998400 > /$CPUL/$GOV/hispeed_freq
+		echo "$TARGET4" > /$CPUL/$GOV/target_loads
+		echo 20000 > /$CPUL/$GOV/timer_rate
+		echo 40000 > /$CPUL/$GOV/sleep_timer_rate
+		echo 40000 > /$CPUL/$GOV/min_sample_time
+		echo 1 > /$CPUL/$GOV/ignore_hispeed_on_notif
+		echo 79000 > /$CPUL/$GOV/max_freq_hysteresis
+		echo 80000 > /$CPUL/$GOV/timer_slack
+		echo 0 > /$CPUL/$GOV/io_is_busy
+		echo 0 > /$CPUL/$GOV/boost
+		echo 0 > /$CPUL/$GOV/boostpulse_duration
+		echo 0 > /$CPUL/$GOV/fast_ramp_down
+		echo 1094400 > /$CPUL/scaling_max_freq
         break
     fi;
 done;
