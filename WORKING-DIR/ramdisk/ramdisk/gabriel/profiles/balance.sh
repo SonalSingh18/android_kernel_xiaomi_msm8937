@@ -108,6 +108,8 @@ if [ -e "/proc/sys/kernel/sched_boost" ]; then
 	echo 0 > /proc/sys/kernel/sched_boost
 fi
 
+echo 2 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus;
+
 echo 1 > /sys/module/msm_thermal/core_control/enabled
 echo 0 > /sys/module/msm_thermal/parameters/enabled
 echo "msm-adreno-tz" > /sys/class/kgsl/kgsl-3d0/devfreq/governor
