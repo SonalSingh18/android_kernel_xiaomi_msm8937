@@ -122,7 +122,7 @@ echo 40 > /sys/module/adreno_idler/parameters/adreno_idler_downdifferential
 echo 5000 > /sys/module/adreno_idler/parameters/adreno_idler_idleworkload
 echo "zen"> /sys/block/mmcblk0/queue/scheduler
 echo 1 > /sys/module/workqueue/parameters/power_efficient
-echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lm
+echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
 echo "westwood" > /proc/sys/net/ipv4/tcp_congestion_control
 
 echo -n disable > /sys/devices/soc/soc:qcom,bcl/mode

@@ -29,8 +29,8 @@ for i in 0 1 2 3; do
 		echo 0 > /$CPUB/$GOV/max_freq_hysteresis
 		echo 160000 > /$CPUB/$GOV/timer_slack
 		echo 0 > /$CPUB/$GOV/io_is_busy
-		echo 0 > /$CPUL/$GOV/boost
-		echo 0 > /$CPUL/$GOV/boostpulse_duration
+		echo 0 > /$CPUB/$GOV/boost
+		echo 0 > /$CPUB/$GOV/boostpulse_duration
 		echo 1 > /$CPUB/$GOV/fast_ramp_down
 		echo 1248000 > /$CPUB/scaling_max_freq
         break
@@ -122,7 +122,7 @@ echo 40 > /sys/module/adreno_idler/parameters/adreno_idler_downdifferential
 echo 5000 > /sys/module/adreno_idler/parameters/adreno_idler_idleworkload
 echo "noop"> /sys/block/mmcblk0/queue/scheduler
 echo 1 > /sys/module/workqueue/parameters/power_efficient
-echo 0 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lm
+echo 0 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
 echo "westwood" > /proc/sys/net/ipv4/tcp_congestion_control
 
 echo -n disable > /sys/devices/soc/soc:qcom,bcl/mode
