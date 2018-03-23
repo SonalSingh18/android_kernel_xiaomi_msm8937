@@ -3974,29 +3974,9 @@ static void check_battery_type(struct smbchg_chip *chip)
 	}
 }
 
-static int version_flag;
-void get_version_change_current(struct smbchg_chip *chip)
-{
-	char *boardid_string = NULL;
-	char boardid_start[32] = " ";
-	int India;
 
-	boardid_string = strstr(saved_command_line, "board_id=");
+#define call_current_max 2000
 
-	if (boardid_string != NULL) {
-		strncpy(boardid_start, boardid_string+9, 9);
-		India = strncmp(boardid_start, "S88536CA2", 9);
-		if (!India) {
-			pr_err("India version!\n");
-			version_flag = 1;
-		} else {
-			pr_err("Normal version!\n");
-			version_flag = 0;
-		}
-	}
-}
-
-#define call_current_max 900
 void smbchg_set_calling_current(struct smbchg_chip *chip)
 {
 	enum power_supply_type usb_supply_type;
@@ -4006,7 +3986,7 @@ void smbchg_set_calling_current(struct smbchg_chip *chip)
 	pr_smb(PR_MISC, "chip->call_state =%d, usb_supply_type =%d\n", chip->call_state, usb_supply_type);
 	if ((chip->call_state == 0)) {
 		if (usb_supply_type == POWER_SUPPLY_TYPE_USB_DCP)  {
-			pr_smb(PR_MISC, "call_icl_voltage vote 900mA when calling\n");
+			pr_smb(PR_MISC, "call_icl_voltage vote 2000mA when calling\n");
 			vote(chip->usb_icl_votable, CALL_ICL_VOTER, true, call_current_max);
 		}
 	} else {
