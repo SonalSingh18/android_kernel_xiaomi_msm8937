@@ -309,7 +309,6 @@ config CPU_FREQ_GOV_LIONFISH
 
 	  If in doubt, say N.
 
->>>>>>> 3eae5f74f517... cpufreq: Add LIONFISH governor
 config CPU_BOOST
 	tristate "Event base short term CPU freq boost"
 	depends on CPU_FREQ
