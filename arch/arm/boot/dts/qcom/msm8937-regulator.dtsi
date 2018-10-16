@@ -421,8 +421,8 @@
 		qcom,cpr-speed-bin-max-corners =
 					<0 0 1 2 6>,
 			<1 0 1 2 7>,
-					<2 0 1 2 3>
-					<3 0 1 2 7>;
+					<2 0 1 2 3>;
+
 		qcom,cpr-fuse-revision = <69 39 3 0>;
 		qcom,cpr-quot-adjust-scaling-factor-max = <0 1400 1400>;
 		qcom,cpr-voltage-scaling-factor-max = <0 2000 2000>;
