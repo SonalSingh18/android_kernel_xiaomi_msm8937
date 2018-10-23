@@ -248,7 +248,7 @@ config CPU_FREQ_DEFAULT_GOV_SAKURACTIVE
 	      the help section of the driver. Fallback governor will be the
 	      performance governor.
 	      
-
+-endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
 	tristate "'performance' governor"
