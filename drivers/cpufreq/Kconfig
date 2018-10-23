@@ -508,10 +508,7 @@ config CPU_FREQ_GOV_LIONFISH
 
 	  If in doubt, say N.
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 3976eff8bb95... :zap: Added Cultivation Governor
 config CPU_FREQ_GOV_IRONACTIVE
 	tristate "'ironactive' cpufreq policy governor"
 	help
@@ -535,7 +532,7 @@ config CPU_FREQ_GOV_CULTIVATION
 	help
 	  'cultivation' - another tuned interactive with extra options
 
-<<<<<<< HEAD
+
 config CPU_FREQ_GOV_NEBULA
 	tristate "'nebula' cpufreq policy governor"
 	help
@@ -583,8 +580,6 @@ config CPU_FREQ_GOV_BARRY_ALLEN
 
 	  If in doubt, say N.
 
-=======
->>>>>>> 3976eff8bb95... :zap: Added Cultivation Governor
 
 config CPU_BOOST
 	tristate "Event base short term CPU freq boost"
