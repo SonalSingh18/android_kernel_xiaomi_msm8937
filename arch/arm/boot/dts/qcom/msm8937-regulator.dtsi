@@ -299,10 +299,13 @@
 			reg = <0x2000 0x100>;
 			qcom,mode = "pwm";
 
+			qcom,ocp-enable = <0>; //disable over current protection
+			qcom,auto-mode-enable = <0>; //disable auto mode and set it to High Power Mode
+			qcom,hpm-enable = <1>; //enable high power mode
 			qcom,init-quiet-mode = <2>; //Regulator EMI noise reduction
 
 			regulator-name = "pm8937_s5";
-			regulator-min-microvolt = <1025000>;
+			regulator-min-microvolt = <1050000>;
 			regulator-max-microvolt = <1350000>;
 		};
 	};
@@ -361,12 +364,12 @@
 		interrupts = <0 15 0>;
 		regulator-name = "apc_corner";
 		regulator-min-microvolt = <1>;
-		regulator-max-microvolt = <9>;
+		regulator-max-microvolt = <8>;
 
 		qcom,cpr-fuse-corners = <3>;
 
-		qcom,cpr-voltage-ceiling = <1120000 1210000 1350000>;
-		qcom,cpr-voltage-floor =   <1050000 1125000 1275000>;
+		qcom,cpr-voltage-ceiling = <1125000 1225000 1345000>; //RAM was undervolted at max clock in -5mV
+		qcom,cpr-voltage-floor =   <1045000 1190000 1275000>; //overvolt higher clock rates (+25mV). Stock one was undervolted (-60mV).
 
 		vdd-apc-supply = <&pm8937_s5>;
 
@@ -390,7 +393,7 @@
 		qcom,cpr-fuse-target-quot = <42 24 6>;
 		qcom,cpr-fuse-ro-sel = <60 57 54>;
 
-		qcom,cpr-init-voltage-ref = <1120000 1210000 1350000>;
+		qcom,cpr-init-voltage-ref = <1125000 1225000 1345000>; //RAM was undervolted at max clock in -5mV
 
 		qcom,cpr-fuse-init-voltage =
 					<67 36 6 0>,
@@ -399,10 +402,10 @@
 		qcom,cpr-fuse-quot-offset =
 					<71 26 6 0>,
 					<71 20 6 0>,
-					<70 54 9 0>;
+					<70 54 8 0>;
 		qcom,cpr-fuse-quot-offset-scale = <5 5 5>;
 		qcom,cpr-init-voltage-step = <10000>;
-		qcom,cpr-corner-map = <1 2 3 3 3 3 3 3 3>;
+		qcom,cpr-corner-map = <1 1 2 2 2 3 3 3 3>;
 		qcom,cpr-corner-frequency-map =
 				<1 960000000>,
 				<2 1094400000>,
@@ -411,12 +414,11 @@
 				<5 1344000000>,
 				<6 1401000000>,
 				<7 1497600000>,
-				<8 1536000000>,
-				<9 1651200000>;
+				<8 1536000000>;
 		qcom,speed-bin-fuse-sel = <37 34 3 0>;
 		qcom,cpr-speed-bin-max-corners =
 					<0 0 1 2 6>,
-					<1 0 1 2 9>,
+					<1 0 1 2 7>,
 
 					<2 0 1 2 3>;
 
